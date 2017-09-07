@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>js</title>
+ 
+</head>
+<body>
+
+<script>
+
+var list = {
+
+    listItem1: 1,
+
+    subList: {
+
+        subSubList: {
+
+            subSubListItem1: 1,
+
+            subSubListItem2: 'green'
+
+        },
+
+        subListItem1: 'blue'
+
+    },
+	listItem4: '1',
+	listItem3: 6,
+	listItem2: ['=))', 89, 1, 555, '1']
+
+};
+
+
+function printList(path, list) {
+
+  for(key in list) {
+	
+	if( typeof(list[key]) == 'object' ) {
+		 printList(path + key + ' > ' , list[key]);
+		
+	} else {
+		
+		if ( list[key] == 1 ) {
+			document.write(path + key + '</br>');
+		}
+		
+	}
+    
+  }
+
+}
+
+printList('', list);
+
+</script>
+</body>
+</html>
