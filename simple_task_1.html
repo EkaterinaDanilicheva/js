@@ -1,6 +1,8 @@
 <html>
 <head>
 <meta charset="utf-8">
+
+<link rel="stylesheet" href="simple_task_1style.css">
 <title>simple_task_1</title>
  
 </head>
@@ -13,35 +15,57 @@
 	<select id='type'>
 	    <option value="1">равнобедренный треугольник</option>
 	    <option value="2">прямоугольный треугольник</option>
+	    <option value="3">шахматная доска</option>
    	</select></br>
-	<input type="submit" value="GO" onclick="triangle(document.getElementById('n').value, document.getElementById('type').value );">
+	<select id='background'>
+	    	<option value="red">red</option>
+		<option value="Yellow">Yellow</option>
+		<option value="Lime">Lime</option>
+		<option value="Blue">Blue</option>
+		<option value="Aqua">Aqua</option>
+		<option value="HotPink">HotPink</option>
+   	</select></br>
+	<input type="submit" value="GO" onclick="triangle(document.getElementById('n').value, document.getElementById('type').value,  document.getElementById('background').value);">
 
 <div id="triangle"></div>
 <script>
-function triangle(n, type) {
+function triangle(n, type, background) {
 	 var str='';
 	 if(type=='2') {
 		 for(var i=1; i<=n; i++) {
-
+			str+='<ul>';
 		 	for(var j=0; j<i; j++) {		
-				str+='#';
+				str+='<li id="pix" style="background: '+background+';"></li>';
 			}
-			str+='</br>';
+			str+='</ul>';
 		 }
-	 } else {
+	 } else if(type=='1') {
 		 var base=(2*n)-1;
 		 for(var i=1; i<=n; i++) {
-		
+			str+='<ul>';
 		 	for(var j=0; j<base; j++) {
 					
 				if( Math.floor((base/2)-i)<j && j<Math.floor((base/2)+i) ) {			
-					str+='#';
+					str+='<li id="pix" style="background: '+background+';"></li>';
 				} else {
-					str+='&nbsp&nbsp&nbsp';
+					str+='<li id="tab" style="background: #FFFFFF;">&nbsp&nbsp</li>';
 				}
 			}
-			str+='</br>';
+			str+='</ul>';
 
+		 }
+	 } else if(type=='3') {
+	//console.log(n);
+		for(var i=1; i<=n; i++) {
+			str+='<ul>';
+		 	for(var j=0; j<=n; j++) {
+				if( (j%2==0 && i%2==0)|| (j%2>0 && i%2>0) ) {		
+					str+='<li id="pix" style="background: '+background+';"></li>';
+				} else {
+					str+='<li id="tab" style="background: #FFFFFF;">&nbsp&nbsp</li>';
+				}
+			}
+			str+='</ul>';
 		 }
 	 }
 	 document.getElementById('triangle').innerHTML=str;

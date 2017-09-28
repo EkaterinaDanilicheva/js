@@ -1,0 +1,21 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+#triangle {
+	width: auto;
+	margin: 2%;
+	padding: 0 0 0 40%;
+}
+
+#triangle li {
+	display: inline-block;
+	list-style: none;
+}
+
+#pix, #tab {
+	width: 4%;
+	height: 4%;
+}
