@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>factorial</title>
+ 
+</head>
+<body>
+<p>
+factorial
+</p></br>
+Введите число <input type="txt" id="n"><Br>
+<input type="submit" value="Считать" onclick="dofact(document.getElementById('n').value)">
+<div id="rez"></div>
+<script>
+function dofact(n) {
+	document.getElementById('rez').innerHTML=factorial(n);
+}
+function factorial(n) {
+	if(n==1){
+		return n;
+	} else {
+		return factorial(n-1)*n;
+	}
+	
+	//console.log(n);
+}
+</script>
+</body>
+</html>
